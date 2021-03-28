@@ -1,3 +1,9 @@
 node_modules
 dist/scripts
+dist/module.json
+dist/module
+dist/lang
+dist/templates
+dist/specific-scene-songs.js
+
 foundry.js
