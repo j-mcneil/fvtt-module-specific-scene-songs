@@ -7,8 +7,8 @@
     "prepare": "husky install",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup --config",
-    "release": "standard-version",
-    "release-dry-run": "standard-version --dry-run",
+    "release": "standard-version --commit-all",
+    "release-dry-run": "standard-version --dry-run --commit-all",
     "generate-typings": "jsdoc -p -a all -t node_modules/tsd-jsdoc/dist foundry.js -d src/types"
   },
   "author": "",
