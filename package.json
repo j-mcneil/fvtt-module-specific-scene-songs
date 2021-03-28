@@ -1,5 +1,5 @@
 {
-  "name": "single-scene-song",
+  "name": "specific-scene-songs",
   "version": "0.0.1",
   "description": "Allows specifying a single song for FoundryVTT scenes",
   "main": "index.js",

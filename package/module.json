@@ -1,12 +1,12 @@
 {
-  "name": "single-scene-song",
-  "title": "Single Scene Song",
-  "description": "Allows choosing a single song for a scene instead of an entire playlist",
+  "name": "specific-scene-songs",
+  "title": "Specific Scene Songs",
+  "description": "Allows for choosing specific songs for scenes instead of entire playlists",
   "author": "j-mcneil",
   "version": "0.0.1",
   "minimumCoreVersion": "0.7.9",
   "compatibleCoreVersion": "0.7.9",
-  "esmodules": ["single-scene-song.js"],
+  "esmodules": ["specific-scene-songs.js"],
   "languages": [
     {
       "lang": "en",
@@ -14,8 +14,8 @@
       "path": "lang/en.json"
     }
   ],
-  "url": "https://github.com/j-mcneil/single-scene-song",
-  "manifest": "https://github.com/j-mcneil/single-scene-song/raw/master/package/module.json",
-  "download": "https://github.com/j-mcneil/single-scene-song/raw/master/package/single-scene-song-v0.0.1.zip",
-  "bugs": "https://github.com/j-mcneil/single-scene-song/issues"
+  "url": "https://github.com/j-mcneil/fvtt-module-specific-scene-songs",
+  "manifest": "https://github.com/j-mcneil/fvtt-module-specific-scene-songs/raw/master/package/module.json",
+  "download": "https://github.com/j-mcneil/fvtt-module-specific-scene-songs/raw/master/package/specific-scene-songs-v0.0.1.zip",
+  "bugs": "https://github.com/j-mcneil/fvtt-module-specific-scene-songs/issues"
 }

@@ -1,7 +1,7 @@
 import { BehaviorSubject, combineLatest, firstValueFrom } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 
-const moduleKey = 'single-scene-song';
+const moduleKey = 'specific-scene-songs';
 const songKey = 'song';
 const isUpdatingScene$ = new BehaviorSubject(false);
 const isDeletingSound$ = new BehaviorSubject(false);
@@ -37,24 +37,24 @@ Hooks.once('ready', function () {
 });
 
 Hooks.on('renderSceneConfig', (app: SceneConfig & { object: Scene }, html: JQuery /*, data: any*/) => {
-  const label = game.i18n.localize('single-scene-song.song-label');
-  const notes = game.i18n.localize('single-scene-song.song-notes');
+  const label = game.i18n.localize('specific-scene-songs.song-label');
+  const notes = game.i18n.localize('specific-scene-songs.song-notes');
   const $playlist = html.find('.form-group select[name="playlist"]').first();
-  //let initialSongId = app.object.data[`single-scene-song__song`];
+  //let initialSongId = app.object.data[`specific-scene-songs__song`];
   const initialSongId =
     app.object.data.flags[moduleKey] &&
     app.object.data.flags[moduleKey][songKey] &&
     app.object.getFlag(moduleKey, songKey);
 
   const playlistChanged = (playlistId?: string, selectedSongId?: string) => {
-    $playlist.closest('.form-group').siblings('.form-group.single-scene-song__song').remove();
+    $playlist.closest('.form-group').siblings('.form-group.specific-scene-songs__song').remove();
 
     if (playlistId === undefined) return;
 
     $playlist.closest('.form-group').after(`
-      <div class="form-group single-scene-song__song">
+      <div class="form-group specific-scene-songs__song">
         <label>${label}</label>
-        <select name="single-scene-song__song" data-dtype="String">
+        <select name="specific-scene-songs__song" data-dtype="String">
             <option value=""${selectedSongId ? '' : ' selected'}></option>
             ${game.playlists.entities
               .find((p) => p.id === playlistId)
@@ -81,7 +81,7 @@ Hooks.on('renderSceneConfig', (app: SceneConfig & { object: Scene }, html: JQuer
 });
 
 Hooks.on('closeSceneConfig', async (app: SceneConfig & { object: Scene }, html: JQuery /*, data: any*/) => {
-  const $song = html.find('.form-group.single-scene-song__song select[name="single-scene-song__song"]');
+  const $song = html.find('.form-group.specific-scene-songs__song select[name="specific-scene-songs__song"]');
   const songId = ($song.get(0) as HTMLSelectElement).value;
 
   isUpdatingScene$.next(true);

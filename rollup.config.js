@@ -6,7 +6,7 @@ import resolve from 'rollup-plugin-node-resolve';
 export default {
   input: 'src/index.ts',
   output: {
-    file: 'dist/single-scene-song.js',
+    file: 'dist/specific-scene-songs.js',
     format: 'es',
   },
   plugins: [
