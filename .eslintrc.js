@@ -22,6 +22,10 @@ module.exports = {
     {
       files: ['*.js'],
       parser: 'espree',
+      parserOptions: {
+        ecmaVersion: 2020,
+        sourceType: 'module',
+      },
     },
     {
       files: ['*.ts'],

@@ -1,6 +1,7 @@
 // rollup.config.js
 import copy from 'rollup-plugin-copy';
 import typescript from '@rollup/plugin-typescript';
+import resolve from 'rollup-plugin-node-resolve';
 
 export default {
   input: 'src/index.ts',
@@ -9,9 +10,10 @@ export default {
     format: 'es',
   },
   plugins: [
-    typescript(),
+    typescript({}),
     copy({
       targets: [{ src: 'src/lang/**/*', dest: 'dist/lang' }],
     }),
+    resolve(),
   ],
 };

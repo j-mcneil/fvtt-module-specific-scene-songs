@@ -1,3 +1,4 @@
 {
-  "single-scene-song.song": "Song from playlist"
+  "single-scene-song.song-label": "Playlist Song",
+  "single-scene-song.song-notes": "Song from the selected playlist to play.  Leave blank to not play a specific song."
 }
