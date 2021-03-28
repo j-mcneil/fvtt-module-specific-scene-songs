@@ -9,7 +9,7 @@ fs.readFile('./package/module.json', (err, data) => {
   const { version } = module;
 
   // create a file to stream archive data to.
-  const output = fs.createWriteStream(`./package/v${version}.zip`);
+  const output = fs.createWriteStream(`./package/specific-scene-songs-v${version}.zip`);
   const archive = archiver('zip', {
     zlib: { level: 9 }, // Sets the compression level.
   });
