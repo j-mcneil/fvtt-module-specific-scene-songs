@@ -5,7 +5,8 @@ const archiver = require('archiver');
 fs.readFile('./package/module.json', (err, data) => {
   if (err) throw err;
 
-  const { version } = JSON.parse(data);
+  const module = JSON.parse(data);
+  const { version } = module;
 
   // create a file to stream archive data to.
   const output = fs.createWriteStream(`./package/v${version}.zip`);
@@ -45,11 +46,21 @@ fs.readFile('./package/module.json', (err, data) => {
   // pipe archive data to the file
   archive.pipe(output);
 
-  // append a file
-  archive.file('./package/module.json', { name: 'module.json' });
-
   // append files from a sub-directory, putting its contents at the root of archive
-  archive.directory('dist/', false);
+  //archive.directory('dist/', false);
+
+  // append files from a glob pattern
+  archive.glob('**/!(module).*', { cwd: 'dist/' });
+
+  // append a file
+  archive.append(
+    JSON.stringify(
+      { ...module, manifest: module.manifest.replace('module.json', `module${version.replace(/\./g, '')}.json`) },
+      undefined,
+      2
+    ),
+    { name: 'module.json' }
+  );
 
   // finalize the archive (ie we are done appending files but streams have to finish yet)
   // 'close', 'end' or 'finish' may be fired right after calling this method so register to them beforehand
