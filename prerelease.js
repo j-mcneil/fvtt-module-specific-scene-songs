@@ -3,7 +3,18 @@ const fs = require('fs');
 fs.readFile('./package/module.json', (err, data) => {
   if (err) throw err;
 
-  const { version } = JSON.parse(data);
+  const module = JSON.parse(data);
+  const { version } = module;
 
-  fs.writeFile(`./package/module${version.replace(/\./g, '')}.json`, data, () => {});
+  const alteredVersion = version.replace(/\./g, '');
+
+  fs.writeFile(
+    `./package/module${alteredVersion}.json`,
+    JSON.stringify(
+      { ...module, manifest: module.manifest.replace('module.json', `module${alteredVersion}.json`) },
+      undefined,
+      2
+    ),
+    () => {}
+  );
 });
